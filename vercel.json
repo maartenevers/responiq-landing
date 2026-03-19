@@ -1,9 +1,16 @@
 {
-  "version": 2,
-  "builds": [
+  "headers": [
     {
-      "src": "**/*.html",
-      "use": "@vercel/static"
+      "source": "/",
+      "headers": [
+        { "key": "Content-Type", "value": "text/html; charset=utf-8" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.html",
+      "headers": [
+        { "key": "Content-Type", "value": "text/html; charset=utf-8" }
+      ]
     }
   ]
 }
