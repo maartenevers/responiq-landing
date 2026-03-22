@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResponiQ — AI Review Management for Hospitality</title>
+  <meta name="description" content="AI-powered Google review management for restaurants, hotels, spas, and bars. Respond smarter. Grow faster. Join the waitlist." />
+  <meta property="og:title" content="ResponiQ — AI Review Management for Hospitality" />
+  <meta property="og:description" content="AI-drafted review responses in your brand voice, escalation alerts, and deep analytics. Built for multi-location hospitality businesses." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #F8F9FC;
+      --bg-white:   #ffffff;
+      --navy:       #0A0E1A;
+      --teal:       #00DAC4;
+      --teal-dark:  #00897B;
+      --green:      #10B981;
+      --border:     #E5E7EB;
+      --muted:      #64748B;
+      --light-text: #94A3B8;
+      --shadow-sm:  0 1px 3px rgba(10,14,26,0.06), 0 1px 2px rgba(10,14,26,0.04);
+      --shadow-md:  0 4px 16px rgba(10,14,26,0.08);
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--navy);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: var(--navy);
+    }
+
+    .wordmark {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .wordmark img {
+      height: 32px;
+      width: auto;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 14px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: rgba(16, 185, 129, 0.06);
+    }
+
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.45; transform: scale(0.75); }
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 72px 24px 64px;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5.5vw, 56px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--teal-dark);
+    }
+
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+
+    /* Benefits list */
+    .benefits {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 24px;
+      margin-bottom: 48px;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .benefit-check {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(0, 218, 196, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .benefit-check svg { width: 10px; height: 10px; }
+
+    /* ── Email form ── */
+    .form-section {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    input[type="email"] {
+      flex: 1;
+      background: var(--bg-white);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 13px 16px;
+      font-size: 15px;
+      color: var(--navy);
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input[type="email"]::placeholder { color: var(--light-text); }
+
+    input[type="email"]:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(0, 218, 196, 0.15);
+    }
+
+    button[type="submit"] {
+      background: var(--teal);
+      color: var(--navy);
+      border: none;
+      border-radius: 10px;
+      padding: 13px 22px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(0, 218, 196, 0.35);
+    }
+
+    button[type="submit"]:hover {
+      background: #00C4B0;
+      box-shadow: 0 4px 12px rgba(0, 218, 196, 0.45);
+    }
+
+    button[type="submit"]:active { transform: scale(0.98); }
+    button[type="submit"]:disabled { opacity: 0.55; cursor: not-allowed; box-shadow: none; }
+
+    .form-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--light-text);
+      text-align: center;
+    }
+
+    .form-success {
+      display: none;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #065F46;
+    }
+
+    .form-success.visible { display: flex; }
+    .form-success svg { flex-shrink: 0; color: var(--green); }
+
+    /* ── Feature cards ── */
+    .features {
+      padding: 0 24px 72px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .feature-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .icon-teal  { background: rgba(0, 218, 196, 0.1); }
+    .icon-red   { background: rgba(239, 68, 68, 0.08); }
+    .icon-purple{ background: rgba(139, 92, 246, 0.08); }
+
+    .feature-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .feature-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    .tag-teal   { background: rgba(0, 218, 196, 0.12); color: var(--teal-dark); }
+    .tag-red    { background: rgba(239, 68, 68, 0.1);  color: #B91C1C; }
+    .tag-purple { background: rgba(139, 92, 246, 0.12); color: #6D28D9; }
+
+    /* Mini UI mockups inside cards */
+    .mock-ui {
+      margin-top: 20px;
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .mock-header {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--light-text);
+      background: #F1F5F9;
+    }
+
+    .mock-review {
+      padding: 10px 12px;
+      border-left: 3px solid var(--teal);
+      margin: 10px 10px 4px;
+      border-radius: 0 6px 6px 0;
+      background: rgba(0, 218, 196, 0.04);
+    }
+
+    .mock-stars {
+      color: #F59E0B;
+      font-size: 11px;
+      margin-bottom: 3px;
+    }
+
+    .mock-text {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .mock-btn {
+      display: inline-block;
+      padding: 4px 10px;
+      background: var(--teal);
+      color: var(--navy);
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 6px;
+    }
+
+    .mock-alert {
+      padding: 10px 12px;
+      border-left: 3px solid #EF4444;
+      margin: 10px 10px 4px;
+      border-radius: 0 6px 6px 0;
+      background: rgba(239, 68, 68, 0.04);
+    }
+
+    .mock-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-red    { background: rgba(239, 68, 68, 0.12); color: #B91C1C; }
+    .badge-green  { background: rgba(16, 185, 129, 0.12); color: #065F46; }
+    .badge-amber  { background: rgba(245, 158, 11, 0.15); color: #92400E; }
+
+    .mock-alert-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mock-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+    }
+
+    .mock-bar-label {
+      font-size: 10px;
+      color: var(--muted);
+      width: 60px;
+      flex-shrink: 0;
+    }
+
+    .mock-bar-track {
+      flex: 1;
+      height: 5px;
+      background: #E2E8F0;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .mock-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+    }
+
+    .fill-green  { background: #10B981; }
+    .fill-teal   { background: var(--teal); }
+    .fill-amber  { background: #F59E0B; }
+
+    .mock-bar-score {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--navy);
+      width: 22px;
+      text-align: right;
+    }
+
+    /* ── Stats ── */
+    .stats-strip {
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-white);
+    }
+
+    .stats-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-value span { color: var(--teal-dark); }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--light-text);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--light-text);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: var(--navy); }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      header { padding: 18px 20px; }
+      .hero  { padding: 48px 20px 40px; }
+      .features { padding: 0 20px 48px; }
+      .stats-inner { gap: 28px; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: center; text-align: center; }
+      .form-row { flex-direction: column; }
+      button[type="submit"] { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="wordmark">
+      <img src="responiq/public/responiq_wordmark.png" alt="ResponiQ" />
+    </a>
+    <div class="header-badge">
+      <span class="pulse-dot"></span>
+      Launching soon
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="hero-label">Early Access</span>
+
+    <h1>Stop losing customers<br/>to <em>unanswered</em> reviews.</h1>
+
+    <p class="hero-sub">
+      ResponiQ reads your Google reviews, drafts AI-powered responses in your brand's voice,
+      and gives you deep analytics on what your customers are really saying.
+    </p>
+
+    <!-- Benefits -->
+    <div class="benefits">
+      <div class="benefit">
+        <div class="benefit-check">
+          <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#00DAC4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        AI replies in your brand voice
+      </div>
+      <div class="benefit">
+        <div class="benefit-check">
+          <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#00DAC4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Escalation alerts before damage is done
+      </div>
+      <div class="benefit">
+        <div class="benefit-check">
+          <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#00DAC4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Multi-location analytics & insights
+      </div>
+    </div>
+
+    <!-- Email form -->
+    <div class="form-section">
+      <label class="form-label" for="email">Join the waitlist — early access launching soon</label>
+
+      <form id="waitlist-form" action="https://formspree.io/f/xreyjvlk" method="POST">
+        <div class="form-row">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@yourbusiness.com"
+            required
+            autocomplete="email"
+          />
+          <button type="submit" id="submit-btn">Join waitlist →</button>
+        </div>
+        <p class="form-note">No spam. Early access + founding member pricing when we launch.</p>
+      </form>
+
+      <div class="form-success" id="form-success">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <circle cx="9" cy="9" r="8.5" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M5.5 9l2.5 2.5L12.5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>You're on the list. We'll be in touch before launch.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature cards -->
+  <section class="features">
+    <div class="features-grid">
+
+      <!-- Card 1: AI Reply Drafts -->
+      <div class="feature-card">
+        <div class="feature-icon icon-teal">✍️</div>
+        <div class="feature-title">AI Reply Drafts</div>
+        <p class="feature-desc">
+          Every new Google review gets an AI-drafted response in your brand's voice within seconds.
+          Approve with one click — or set auto-approve for 4★+ reviews.
+        </p>
+        <span class="feature-tag tag-teal">All plans</span>
+
+        <!-- Mini mockup -->
+        <div class="mock-ui">
+          <div class="mock-header">New review · La Cucina Amsterdam</div>
+          <div class="mock-review">
+            <div class="mock-stars">★★★★★</div>
+            <div class="mock-text">"Amazing pasta, the service was warm and attentive. Will definitely be back!"</div>
+            <span class="mock-btn">✓ Approve draft</span>
+          </div>
+          <div style="height:10px"></div>
+        </div>
+      </div>
+
+      <!-- Card 2: Escalation Alerts -->
+      <div class="feature-card">
+        <div class="feature-icon icon-red">⚡</div>
+        <div class="feature-title">Escalation Alerts</div>
+        <p class="feature-desc">
+          AI reads every review for health &amp; safety concerns, legal signals, and highly distressed guests —
+          and alerts you immediately before it escalates into a crisis.
+        </p>
+        <span class="feature-tag tag-red">All plans</span>
+
+        <!-- Mini mockup -->
+        <div class="mock-ui">
+          <div class="mock-header">Needs urgent attention · 1</div>
+          <div class="mock-alert">
+            <div class="mock-alert-name">
+              Marcus V. · Hotel Keizersgracht
+              <span class="mock-badge badge-red">health_safety</span>
+            </div>
+            <div class="mock-text">"Visible mould in the bathroom and an unpleasant smell throughout…"</div>
+          </div>
+          <div style="height:10px"></div>
+        </div>
+      </div>
+
+      <!-- Card 3: Location Insights -->
+      <div class="feature-card">
+        <div class="feature-icon icon-purple">📊</div>
+        <div class="feature-title">Deep Location Insights</div>
+        <p class="feature-desc">
+          Per-aspect analytics across 8+ dimensions, weekly AI digest with prioritised recommendations,
+          and competitor tracking — so you always know where to improve.
+        </p>
+        <span class="feature-tag tag-purple">Pro &amp; Enterprise</span>
+
+        <!-- Mini mockup -->
+        <div class="mock-ui">
+          <div class="mock-header">Aspect scores · Riva Spa &amp; Wellness</div>
+          <div class="mock-bar-row">
+            <span class="mock-bar-label">Service</span>
+            <div class="mock-bar-track"><div class="mock-bar-fill fill-green" style="width:92%"></div></div>
+            <span class="mock-bar-score">4.6</span>
+          </div>
+          <div class="mock-bar-row">
+            <span class="mock-bar-label">Atmosphere</span>
+            <div class="mock-bar-track"><div class="mock-bar-fill fill-teal" style="width:84%"></div></div>
+            <span class="mock-bar-score">4.2</span>
+          </div>
+          <div class="mock-bar-row">
+            <span class="mock-bar-label">Value</span>
+            <div class="mock-bar-track"><div class="mock-bar-fill fill-amber" style="width:66%"></div></div>
+            <span class="mock-bar-score">3.3</span>
+          </div>
+          <div style="height:4px"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Stats strip -->
+  <div class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-value">10<span>×</span></div>
+        <div class="stat-label">Faster responses</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">4.7<span>★</span></div>
+        <div class="stat-label">Avg rating maintained</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">95<span>%</span></div>
+        <div class="stat-label">Response rate</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <span class="footer-copy">© 2025 ResponiQ · All rights reserved</span>
+    <div class="footer-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="mailto:info@responiq.app">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('waitlist-form');
+    const btn  = document.getElementById('submit-btn');
+    const success = document.getElementById('form-success');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Joining…';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.style.display = 'none';
+          success.classList.add('visible');
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Join waitlist →';
+          alert('Something went wrong. Please try again.');
+        }
+      } catch {
+        btn.disabled = false;
+        btn.textContent = 'Join waitlist →';
+        alert('Something went wrong. Please try again.');
+      }
+    });
+  </script>
+
+</body>
+</html>
