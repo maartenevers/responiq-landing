@@ -9,6 +9,9 @@
   <meta property="og:description" content="AI-drafted review responses in your brand voice, escalation alerts, and deep analytics. Built for multi-location hospitality businesses." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -19,8 +22,8 @@
       --bg:         #F8F9FC;
       --bg-white:   #ffffff;
       --navy:       #0A0E1A;
-      --teal:       #00DAC4;
-      --teal-dark:  #00897B;
+      --signal:     #2350FF;
+      --signal-text: #2350FF;
       --green:      #10B981;
       --border:     #E5E7EB;
       --muted:      #64748B;
@@ -118,7 +121,7 @@
 
     h1 em {
       font-style: normal;
-      color: var(--teal-dark);
+      color: var(--signal-text);
     }
 
     .hero-sub {
@@ -151,7 +154,7 @@
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      background: rgba(0, 218, 196, 0.12);
+      background: rgba(35, 80, 255, 0.12);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -199,13 +202,13 @@
     input[type="email"]::placeholder { color: var(--light-text); }
 
     input[type="email"]:focus {
-      border-color: var(--teal);
-      box-shadow: 0 0 0 3px rgba(0, 218, 196, 0.15);
+      border-color: var(--signal);
+      box-shadow: 0 0 0 3px rgba(35, 80, 255, 0.15);
     }
 
     button[type="submit"] {
-      background: var(--teal);
-      color: var(--navy);
+      background: var(--signal);
+      color: #fff;
       border: none;
       border-radius: 10px;
       padding: 13px 22px;
@@ -216,12 +219,12 @@
       font-family: 'Inter', sans-serif;
       white-space: nowrap;
       transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
-      box-shadow: 0 2px 8px rgba(0, 218, 196, 0.35);
+      box-shadow: 0 2px 8px rgba(35, 80, 255, 0.35);
     }
 
     button[type="submit"]:hover {
       background: #00C4B0;
-      box-shadow: 0 4px 12px rgba(0, 218, 196, 0.45);
+      box-shadow: 0 4px 12px rgba(35, 80, 255, 0.45);
     }
 
     button[type="submit"]:active { transform: scale(0.98); }
@@ -288,7 +291,7 @@
       margin-bottom: 16px;
     }
 
-    .icon-teal  { background: rgba(0, 218, 196, 0.1); }
+    .icon-signal  { background: rgba(35, 80, 255, 0.1); }
     .icon-red   { background: rgba(239, 68, 68, 0.08); }
     .icon-purple{ background: rgba(139, 92, 246, 0.08); }
 
@@ -317,7 +320,7 @@
       border-radius: 100px;
     }
 
-    .tag-teal   { background: rgba(0, 218, 196, 0.12); color: var(--teal-dark); }
+    .tag-signal   { background: rgba(35, 80, 255, 0.12); color: var(--signal-text); }
     .tag-red    { background: rgba(239, 68, 68, 0.1);  color: #B91C1C; }
     .tag-purple { background: rgba(139, 92, 246, 0.12); color: #6D28D9; }
 
@@ -343,10 +346,10 @@
 
     .mock-review {
       padding: 10px 12px;
-      border-left: 3px solid var(--teal);
+      border-left: 3px solid var(--signal);
       margin: 10px 10px 4px;
       border-radius: 0 6px 6px 0;
-      background: rgba(0, 218, 196, 0.04);
+      background: rgba(35, 80, 255, 0.04);
     }
 
     .mock-stars {
@@ -365,8 +368,8 @@
     .mock-btn {
       display: inline-block;
       padding: 4px 10px;
-      background: var(--teal);
-      color: var(--navy);
+      background: var(--signal);
+      color: #fff;
       font-size: 10px;
       font-weight: 700;
       border-radius: 6px;
@@ -432,7 +435,7 @@
     }
 
     .fill-green  { background: #10B981; }
-    .fill-teal   { background: var(--teal); }
+    .fill-signal   { background: var(--signal); }
     .fill-amber  { background: #F59E0B; }
 
     .mock-bar-score {
@@ -473,7 +476,7 @@
       margin-bottom: 4px;
     }
 
-    .stat-value span { color: var(--teal-dark); }
+    .stat-value span { color: var(--signal-text); }
 
     .stat-label {
       font-size: 11px;
@@ -552,19 +555,19 @@
     <div class="benefits">
       <div class="benefit">
         <div class="benefit-check">
-          <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#00DAC4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2350FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         AI replies in your brand voice
       </div>
       <div class="benefit">
         <div class="benefit-check">
-          <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#00DAC4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2350FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         Escalation alerts before damage is done
       </div>
       <div class="benefit">
         <div class="benefit-check">
-          <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#00DAC4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2350FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         Multi-location analytics & insights
       </div>
@@ -605,13 +608,13 @@
 
       <!-- Card 1: AI Reply Drafts -->
       <div class="feature-card">
-        <div class="feature-icon icon-teal">✍️</div>
+        <div class="feature-icon icon-signal">✍️</div>
         <div class="feature-title">AI Reply Drafts</div>
         <p class="feature-desc">
           Every new Google review gets an AI-drafted response in your brand's voice within seconds.
           Approve with one click — or set auto-approve for 4★+ reviews.
         </p>
-        <span class="feature-tag tag-teal">All plans</span>
+        <span class="feature-tag tag-signal">All plans</span>
 
         <!-- Mini mockup -->
         <div class="mock-ui">
@@ -669,7 +672,7 @@
           </div>
           <div class="mock-bar-row">
             <span class="mock-bar-label">Atmosphere</span>
-            <div class="mock-bar-track"><div class="mock-bar-fill fill-teal" style="width:84%"></div></div>
+            <div class="mock-bar-track"><div class="mock-bar-fill fill-signal" style="width:84%"></div></div>
             <span class="mock-bar-score">4.2</span>
           </div>
           <div class="mock-bar-row">
